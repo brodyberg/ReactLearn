@@ -43,7 +43,14 @@ const Numbers = (props) => {
     <div className="card text-center">
       <div>
         {Numbers.list.map((number, i) =>
-          <span key={i} className={numberClassName(number)}>{number}</span>
+          <span 
+            // really, he'd recommend creating this as an instance method
+            // but blah blah blah "simple enough for now"
+            // one problem with instance though is that we'd have to convert
+            // this into a class based component
+            onClick={() => props.selectNumber(number)}
+            key={i} 
+            className={numberClassName(number)}>{number}</span>
         )}
       </div>
     </div>
@@ -55,7 +62,13 @@ Numbers.list = _.range(1, 10);
 class Game extends React.Component {
 
   state = {
-    selectedNumbers: [2, 4],
+    selectedNumbers: [],
+  };
+
+  selectNumber = (clickedNumber) => {
+    this.setState(prevState => ({
+      selectedNumbers: prevState.selectedNumbers.concat(clickedNumber)
+    }));
   };
 
   render() {
@@ -69,7 +82,8 @@ class Game extends React.Component {
           <Answer selectedNumbers={this.state.selectedNumbers} />
         </div>
         <br />
-        <Numbers selectedNumbers={this.state.selectedNumbers} />
+        <Numbers selectedNumbers={this.state.selectedNumbers}
+                 selectNumber={this.selectNumber} />
       </div>
     );
   }
