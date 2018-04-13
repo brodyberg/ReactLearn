@@ -19,6 +19,7 @@ const CardList = (props) => {
 }
 
 class Form extends React.Component {
+  state = { userName : '' }
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -30,10 +31,11 @@ class Form extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <input 
+          value={this.state.userName}
+          onChange={(event) => this.setState({ userName: event.target.value })}
           type="text" 
           placeholder="Github username" 
-          required 
-          ref={(input) => this.userNameInput = input} />
+          required />
         <button type="submit">Add card</button>
       </form>
     )
