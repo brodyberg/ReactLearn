@@ -1,6 +1,6 @@
 const Stars = (props) => {
   return (
-    <div className="col">
+    <div className="col-5">
       <i className="fa fa-star"></i>
       <i className="fa fa-star"></i>
       <i className="fa fa-star"></i>
@@ -11,7 +11,7 @@ const Stars = (props) => {
 
 const Button = (props) => {
   return (
-    <div className="col">
+    <div className="col-2">
       <button>=</button>
     </div>
   );
@@ -19,7 +19,7 @@ const Button = (props) => {
 
 const Answer = (props) => {
   return (
-    <div className="col">
+    <div className="col-5">
       ...
     </div>
   );
