@@ -28,14 +28,31 @@ let data = [
 const CardList = (props) => {
 	return (
   	<div>
-    	<Card 
-          name="Brody Berg" 
-          avatar_url="https://avatars0.githubusercontent.com/u/151955?v=4"
-          company="Microsoft" />
-    	<Card />
-    	<Card />
+      {props.cards.map (card => <Card {...card} />)}
     </div>
   )
 }
 
-ReactDOM.render(<CardList />, mountNode);
+class Form extends React.Component {
+  render() {
+    return (
+      <form>
+        <input type="text" placeholder="Github username" />
+        <button type="submit">Add card</button>
+      </form>
+    )
+  }
+}
+
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Form />
+        <CardList cards={data} />
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<App />, mountNode);
