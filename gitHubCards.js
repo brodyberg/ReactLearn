@@ -23,13 +23,17 @@ class Form extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log('Event: Form Submit');
+    console.log('Event: Form Submit', this.userNameInput.value);
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="text" placeholder="Github username" required />
+        <input 
+          type="text" 
+          placeholder="Github username" 
+          required 
+          ref={(input) => this.userNameInput = input} />
         <button type="submit">Add card</button>
       </form>
     )
