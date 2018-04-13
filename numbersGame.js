@@ -1,6 +1,6 @@
 const Stars = (props) => {
   return (
-    <div>
+    <div className="col">
       <i className="fa fa-star"></i>
       <i className="fa fa-star"></i>
       <i className="fa fa-star"></i>
@@ -11,7 +11,7 @@ const Stars = (props) => {
 
 const Button = (props) => {
   return (
-    <div>
+    <div className="col">
       <button>=</button>
     </div>
   );
@@ -19,7 +19,7 @@ const Button = (props) => {
 
 const Answer = (props) => {
   return (
-    <div>
+    <div className="col">
       ...
     </div>
   );
@@ -30,9 +30,11 @@ class Game extends React.Component {
     return (
       <div>
         <h3>Play Nine</h3>
-        <Stars />
-        <Button />
-        <Answer />
+        <div className="row">
+          <Stars />
+          <Button />
+          <Answer />
+        </div>
       </div>
     );
   }
