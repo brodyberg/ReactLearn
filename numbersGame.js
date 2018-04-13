@@ -28,7 +28,7 @@ const Answer = (props) => {
 class Game extends React.Component {
   render() {
     return (
-      <div>
+      <div className="container">
         <h3>Play Nine</h3>
         <div className="row">
           <Stars />
