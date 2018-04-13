@@ -28,7 +28,6 @@ class Form extends React.Component {
 
     axios.get(`https://api.github.com/users/${this.state.userName}`)
       .then(resp => {
-      	console.log('Event: Then')
         this.props.onSubmit(resp.data);
       });
   }
@@ -67,14 +66,9 @@ class App extends React.Component {
   }
 
   addNewCard = (cardInfo) => {
-  	console.log('Event: addNewCard');
-    console.log(cardInfo); 
-
     this.setState(prevState => ({
       cards: prevState.cards.concat(cardInfo)
     }));
-
-    // this.state.cards.push({ name: cardInfo.name, avatar_url: cardInfo.avatar_url, company: cardInfo.company });
   }
 
   render() {
