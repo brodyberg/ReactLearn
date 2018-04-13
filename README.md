@@ -16,6 +16,7 @@ Know:
 * This axios ajax call + promise
 * http://placehold.it/75 for canned image 75x75 pixels
 * fontawesome for cool thingies
+* lodash for helpers like _.range(1, 9)
 
 Not know: 
 
