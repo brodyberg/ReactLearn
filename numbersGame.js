@@ -12,7 +12,7 @@ const Stars = (props) => {
 const Button = (props) => {
   return (
     <div>
-      ...
+      <button>=</button>
     </div>
   );
 }
