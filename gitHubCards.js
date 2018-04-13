@@ -19,7 +19,7 @@ const CardList = (props) => {
 }
 
 class Form extends React.Component {
-  state = { userName : '' }
+  state = { userName: '' }
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -29,6 +29,7 @@ class Form extends React.Component {
     axios.get(`https://api.github.com/users/${this.state.userName}`)
       .then(resp => {
         this.props.onSubmit(resp.data);
+        this.setState({ userName: '' });
       });
   }
 
@@ -49,20 +50,7 @@ class Form extends React.Component {
 
 class App extends React.Component {
   state = {
-    cards: [
-      { name: "Brody Berg", 
-        avatar_url: "https://avatars0.githubusercontent.com/u/151955?v=4",
-        company: "Microsoft"
-      },
-      { name: "Chuck Finley", 
-        avatar_url: "https://avatars2.githubusercontent.com/u/561447?v=4",
-        company: "Stanford Edu"
-      },
-      { name: "Emelyn Berg", 
-        avatar_url: "https://avatars3.githubusercontent.com/u/22876892?v=4",
-        company: ""
-      },
-    ]  
+    cards: []  
   }
 
   addNewCard = (cardInfo) => {
