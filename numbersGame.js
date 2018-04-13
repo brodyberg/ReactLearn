@@ -22,8 +22,11 @@ const Button = (props) => {
 const Answer = (props) => {
   return (
     <div className="col-5">
-      <span>5</span>
-      <span>6</span>
+      {props.selectedNumbers.map((number, i) => 
+        // really, he'd recommend using a uniqueId on an object rather than index
+        // but he's "keeping things simple"
+        <span key={i}>{number}</span>
+      )}
     </div>
   );
 }
@@ -43,6 +46,11 @@ const Numbers = (props) => {
 Numbers.list = _.range(1, 10);
 
 class Game extends React.Component {
+
+  state = {
+    selectedNumbers: [2, 4],
+  };
+
   render() {
     return (
       <div className="container">
@@ -51,7 +59,7 @@ class Game extends React.Component {
         <div className="row">
           <Stars />
           <Button />
-          <Answer />
+          <Answer selectedNumbers={this.state.selectedNumbers} />
         </div>
         <br />
         <Numbers />
