@@ -27,13 +27,14 @@ const Button = (props) => {
 const Answer = (props) => {
   return (
     <div className="col-5">
-      ...
+      <span>5</span>
+      <span>6</span>
     </div>
   );
 }
 
 const Numbers = (props) => {
-  const arrayOfNumbers = _.range(1, 9); 
+  const arrayOfNumbers = _.range(1, 10); 
 
   return (
     <div className="card text-center">
