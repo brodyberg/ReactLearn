@@ -14,6 +14,8 @@ Know:
   * ex. validation form
 * Inline styling in JSX
 * This axios ajax call + promise
+* http://placehold.it/75 for canned image 75x75 pixels
+* fontawesome for cool thingies
 
 Not know: 
 
@@ -30,3 +32,7 @@ Not know:
 * What else can axios do?
   * Once again, how is it possible that we did an ajax
     call to a site that is not ours? 
+
+## Notes: 
+
+* Smart to clone your components to show state-isolation
