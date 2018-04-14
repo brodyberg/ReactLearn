@@ -10,19 +10,8 @@ const Stars = (props) => {
 
 const Button = (props) => {
 
-  // getEnabledName = (selectedNumbers) => {
-  //   if (selectedNumbers.length > 0) {
-  //     return "true";
-  //   }
-  //   else {
-  //     return "false";
-  //   }
-  // }
-
-
   return (
     <div className="col-2">
-      {/* <button disabled={() => { return props.selectedNumbers.length > 0 ? false : true; }}>=</button> */}
       <button disabled={props.selectedNumbers.length > 0 ? false : true}>=</button>
     </div>
   );
