@@ -22,7 +22,7 @@ const Answer = (props) => {
       {props.selectedNumbers.map((number, i) => 
         // really, he'd recommend using a uniqueId on an object rather than index
         // but he's "keeping things simple"
-        <span key={i}>{number}</span>
+        <span key={i} onClick={() => props.unselectNumber(number)}>{number}</span>
       )}
     </div>
   );
@@ -63,8 +63,13 @@ class Game extends React.Component {
     numberOfStars: 1 + Math.floor(Math.random() * 9)
   };
 
-  selectNumber = (clickedNumber) => {
+  unselectNumber = (clickedNumber) => {
+    this.setState(prevState => ({
+      selectedNumbers: prevState.selectedNumbers.filter(number => number !== clickedNumber)
+    }));
+  }
 
+  selectNumber = (clickedNumber) => {
     if (this.state.selectedNumbers.indexOf(clickedNumber) >= 0) {
       return; 
     }
@@ -83,7 +88,8 @@ class Game extends React.Component {
         <div className="row">
           <Stars numberOfStars={this.state.numberOfStars}/>
           <Button />
-          <Answer selectedNumbers={this.state.selectedNumbers} />
+          <Answer selectedNumbers={this.state.selectedNumbers} 
+                  unselectNumber={this.unselectNumber} />
         </div>
         <br />
         <Numbers selectedNumbers={this.state.selectedNumbers}
