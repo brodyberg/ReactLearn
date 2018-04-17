@@ -7,7 +7,7 @@ var connect = require('gulp-connect')
 var open = require('gulp-open')
 
 var config = {
-  port: 9005,
+  port: 3000,
   devBaseUrl: 'http://localhost',
   paths: {
     html: './src/*.html',
@@ -29,9 +29,25 @@ gulp.task('connect', function() {
 // open a given file on the server
 // note we say: first run connect
 gulp.task('open', ['connect'], function() {
-  gulp.src('dist/index.html')
+
+  console.log("config.devBaseUrl: " + config.devBaseUrl);
+
+  gulp
+    .src('dist/index.html')
     .pipe(open({ url: config.devBaseUrl + ':' + config.port + '/'}));
 });
+
+gulp.task('free_open6', function() {
+  gulp
+    .src('dist/index.html')
+    .pipe(open({ uri: 'http://localhost:3000' , app: 'chrome' }));
+    // .pipe(open({ url: '' }));
+    //    .pipe(open({ url: 'http://localhost:9005/' }));
+
+
+  // open({ url: 'http://localhost:9005/' });
+    //.pipe(open({ url: config.devBaseUrl + ':' + config.port + '/'}));
+}); 
 
 // build/move
 gulp.task('html', function() {
