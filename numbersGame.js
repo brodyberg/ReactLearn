@@ -99,6 +99,14 @@ const Numbers = (props) => {
 
 Numbers.list = _.range(1, 10);
 
+const DoneFrame = (props) => {
+  return (
+    <div className="text-center">
+      <h2>{props.doneStatus}</h2>
+    </div>
+  );
+}
+
 class Game extends React.Component {
 
   static randomNumber = () => 1 + Math.floor(Math.random() * 9);
@@ -111,7 +119,8 @@ class Game extends React.Component {
                            // says we should have an answer state here
                            // rather than using null for logic
                            // but this will be "a challenge for you for later"
-    redraws: 5
+    redraws: 5,
+    doneStatus: 'Game Over!'
   };
 
   // we set answerIsCorrect to null in select and unselect number
@@ -172,7 +181,8 @@ class Game extends React.Component {
       numberOfStars, 
       answerIsCorrect, 
       usedNumbers,
-      redraws
+      redraws,
+      doneStatus
     } = this.state;
 
     return (
@@ -191,9 +201,12 @@ class Game extends React.Component {
                   unselectNumber={this.unselectNumber} />
         </div>
         <br />
-        <Numbers selectedNumbers={selectedNumbers}
-                 selectNumber={this.selectNumber}
-                 usedNumbers={usedNumbers} />
+        {doneStatus ?
+          <DoneFrame doneStatus={doneStatus} /> : 
+          <Numbers selectedNumbers={selectedNumbers}
+          selectNumber={this.selectNumber}
+          usedNumbers={usedNumbers} />
+        }
       </div>
     );
   }
