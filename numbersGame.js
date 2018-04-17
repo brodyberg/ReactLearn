@@ -9,10 +9,9 @@ const Stars = (props) => {
 }
 
 const Button = (props) => {
-
   return (
     <div className="col-2">
-      <button disabled={props.selectedNumbers.length > 0 ? false : true}>=</button>
+      <button disabled={props.selectedNumbers.length === 0}>=</button>
     </div>
   );
 }
@@ -69,6 +68,9 @@ class Game extends React.Component {
       selectedNumbers: prevState.selectedNumbers.filter(number => number !== clickedNumber)
     }));
   }
+  // it'd be fun if select and unselect number were reciprocal 
+  // so we could implement like this: 
+  // unselectNumber = !selectNumber 
 
   selectNumber = (clickedNumber) => {
     if (this.state.selectedNumbers.indexOf(clickedNumber) >= 0) {
