@@ -101,9 +101,11 @@ Numbers.list = _.range(1, 10);
 
 class Game extends React.Component {
 
+  static randomNumber = () => 1 + Math.floor(Math.random() * 9);
+
   state = {
     selectedNumbers: [],
-    numberOfStars: 1 + Math.floor(Math.random() * 9),
+    numberOfStars: Game.randomNumber(),
     usedNumbers: [],
     answerIsCorrect: null, // noooooo
                            // says we should have an answer state here
@@ -148,7 +150,7 @@ class Game extends React.Component {
       usedNumbers: prevState.usedNumbers.concat(prevState.selectedNumbers),
       selectedNumbers: [],
       answerIsCorrect: null,
-      numberOfStars: 1 + Math.floor(Math.random() * 9)
+      numberOfStars: Game.randomNumber()
     }));
   }
 
@@ -157,7 +159,7 @@ class Game extends React.Component {
     if (this.state.redraws === 0) { return; }
 
     this.setState(prevState => ({
-      numberOfStars: 1 + Math.floor(Math.random() * 9),
+      numberOfStars: Game.randomNumber(),
       answerIsCorrect: prevState.answerIsCorrect,
       selectedNumbers: [],
       redraws: prevState.redraws - 1
