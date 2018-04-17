@@ -30,23 +30,14 @@ gulp.task('connect', function() {
 // note we say: first run connect
 gulp.task('open', ['connect'], function() {
 
-  console.log("config.devBaseUrl: " + config.devBaseUrl);
+  var options = {
+    uri: 'http://localhost:3000', 
+    app: 'chrome' 
+  }
 
   gulp
     .src('dist/index.html')
-    .pipe(open({ url: config.devBaseUrl + ':' + config.port + '/'}));
-});
-
-gulp.task('free_open6', function() {
-  gulp
-    .src('dist/index.html')
-    .pipe(open({ uri: 'http://localhost:3000' , app: 'chrome' }));
-    // .pipe(open({ url: '' }));
-    //    .pipe(open({ url: 'http://localhost:9005/' }));
-
-
-  // open({ url: 'http://localhost:9005/' });
-    //.pipe(open({ url: config.devBaseUrl + ':' + config.port + '/'}));
+    .pipe(open(options));
 }); 
 
 // build/move
