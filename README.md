@@ -39,3 +39,4 @@ Not know:
 
 * Smart to clone your components to show state-isolation
 * Super important to combine setState with prevState when your new state depends on the previous state
+* Do not assume multiple setState calls will run in order

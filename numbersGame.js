@@ -120,7 +120,7 @@ class Game extends React.Component {
                            // rather than using null for logic
                            // but this will be "a challenge for you for later"
     redraws: 5,
-    doneStatus: 'Game Over!'
+    doneStatus: null
   };
 
   // we set answerIsCorrect to null in select and unselect number
@@ -160,7 +160,7 @@ class Game extends React.Component {
       selectedNumbers: [],
       answerIsCorrect: null,
       numberOfStars: Game.randomNumber()
-    }));
+    }), this.updateDoneStatus);  // using react to call something safely after redraw
   }
 
   redraw = () => {
@@ -172,7 +172,44 @@ class Game extends React.Component {
       answerIsCorrect: prevState.answerIsCorrect,
       selectedNumbers: [],
       redraws: prevState.redraws - 1
-    }));
+    }), this.updateDoneStatus);  // using react to call something safely after redraw
+  }
+
+  updateDoneStatus = () => {
+    this.setState(prevState => {
+      if (prevState.usedNumbers.length === 9) {
+        return { doneStatus: 'Done. Nice!' };
+      }
+      if (prevState.redraws === 0 && !this.possibleSolutions(prevState)) {
+        return { doneStatus: 'Game Over!' };
+      }
+    });
+  }
+
+  possibleSolutions = ({starNumber, usedNumbers}) => {
+    const possibleNumbers = _.range(1,10).filter(number => usedNumbers.indexOf(number) === -1);
+
+    return this.possibleCombinationSum(possibleNumbers, starNumber); 
+  }
+
+  // from author
+  possibleCombinationSum = (arr, n) => {
+    if (arr.indexOf(n) >= 0) { return true; }
+    if (arr[0] > n) { return false; }
+    if (arr[arr.length - 1] > n) {
+      arr.pop();
+      return possibleCombinationSum(arr, n); 
+    }
+    var listSize = arr.length, combinationsCount = (1 << listSize)
+    for (var i = 1; i < combinationsCount; i++) {
+      var combinationSum = 0;
+      for (var j = 0; j < listSize; j++) {
+        if (i & (1 << j)) { combinationSum += arr[j]; }
+      }
+      if (n === combinationSum) { return true; }
+    }
+
+    return false;
   }
 
   render() {
