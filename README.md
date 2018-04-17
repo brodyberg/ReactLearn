@@ -34,6 +34,8 @@ Not know:
 * What else can axios do?
   * Once again, how is it possible that we did an ajax
     call to a site that is not ours? 
+* Samer suggests we use GraphQL
+* Samer suggests we take Advanced Node.js "get comfy with Node, will make your React experience much more valuable"
 
 ## Notes: 
 
