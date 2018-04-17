@@ -74,4 +74,5 @@ For this app we'll choose:
 * cd ReactAndFlux
 * npm init
 * psadmin
-
+* npm install --save gulp gulp-connect gulp-open
+* npm install -g gulp
