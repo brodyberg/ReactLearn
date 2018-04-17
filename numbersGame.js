@@ -94,8 +94,11 @@ class Game extends React.Component {
                           // but this will be "a challenge for you for later"
   };
 
+  // we set answerIsCorrect to null in select and unselect number
+  // so that the answer button reverts to = while the player is working
   unselectNumber = (clickedNumber) => {
     this.setState(prevState => ({
+      answerIsCorrect: null,
       selectedNumbers: prevState.selectedNumbers.filter(number => number !== clickedNumber)
     }));
   }
@@ -109,6 +112,7 @@ class Game extends React.Component {
     }
     else {
       this.setState(prevState => ({
+        answerIsCorrect: null,
         selectedNumbers: prevState.selectedNumbers.concat(clickedNumber)
       }));
     }
