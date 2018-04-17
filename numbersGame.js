@@ -58,8 +58,12 @@ const Answer = (props) => {
 const Numbers = (props) => {
   
   const numberClassName = (number) => {
+    if (props.usedNumbers.indexOf(number) >= 0) {
+      return 'used';
+    }
+    // he was careful about order here between used and selected
     if (props.selectedNumbers.indexOf(number) >= 0) {
-      return "selected";
+      return 'selected';
     }
   };
   
@@ -88,6 +92,7 @@ class Game extends React.Component {
   state = {
     selectedNumbers: [],
     numberOfStars: 1 + Math.floor(Math.random() * 9),
+    usedNumbers: [4, 7],
     answerIsCorrect: null // noooooo
                           // says we should have an answer state here
                           // rather than using null for logic
@@ -130,7 +135,13 @@ class Game extends React.Component {
   }
 
   render() {
-    const { selectedNumbers, numberOfStars, answerIsCorrect } = this.state;
+    const { 
+      selectedNumbers, 
+      numberOfStars, 
+      answerIsCorrect, 
+      usedNumbers 
+    } = this.state;
+
     return (
       <div className="container">
         <h3>Play Nine</h3>
@@ -145,7 +156,8 @@ class Game extends React.Component {
         </div>
         <br />
         <Numbers selectedNumbers={selectedNumbers}
-                 selectNumber={this.selectNumber} />
+                 selectNumber={this.selectNumber}
+                 usedNumbers={usedNumbers} />
       </div>
     );
   }
