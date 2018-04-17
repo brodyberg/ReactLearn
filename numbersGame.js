@@ -15,7 +15,9 @@ const Button = (props) => {
   switch (props.answerIsCorrect) {
     case true: 
       button = 
-        <button className="btn btn-success">
+        <button 
+          onClick={props.acceptAnswer}
+          className="btn btn-success">
           <i className="fa fa-check"></i>
         </button>
       break;
@@ -92,7 +94,7 @@ class Game extends React.Component {
   state = {
     selectedNumbers: [],
     numberOfStars: 1 + Math.floor(Math.random() * 9),
-    usedNumbers: [4, 7],
+    usedNumbers: [],
     answerIsCorrect: null // noooooo
                           // says we should have an answer state here
                           // rather than using null for logic
@@ -124,15 +126,21 @@ class Game extends React.Component {
   };
 
   checkAnswer = () => {
-
-    console.log("checkAnswer");
-    console.log("randomNumberOfStars: " + this.state.numberOfStars);
-    console.log("player total: " + this.state.selectedNumbers.reduce((acc, n) => acc + n, 0));
-    
     this.setState(prevState => ({
       answerIsCorrect: prevState.numberOfStars === prevState.selectedNumbers.reduce((acc, n) => acc + n, 0)
     }));
   }
+
+  // move selected numbers to used, and reset selected to empty
+  acceptAnswer = () => {
+    this.setState(prevState => ({
+      usedNumbers: prevState.usedNumbers.concat(prevState.selectedNumbers),
+      selectNumbers: [],
+      answerIsCorrect: null,
+      numberOfStars: 1 + Math.floor(Math.random() * 9)
+    }));
+  }
+
 
   render() {
     const { 
@@ -150,7 +158,8 @@ class Game extends React.Component {
           <Stars numberOfStars={numberOfStars}/>
           <Button selectedNumbers={selectedNumbers} 
                   checkAnswer={this.checkAnswer}
-                  answerIsCorrect={answerIsCorrect} />
+                  answerIsCorrect={answerIsCorrect} 
+                  acceptAnswer={this.acceptAnswer} />
           <Answer selectedNumbers={selectedNumbers} 
                   unselectNumber={this.unselectNumber} />
         </div>
