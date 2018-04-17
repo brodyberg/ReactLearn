@@ -28,6 +28,7 @@ Not know:
   * Base this on a server-side thing
   * Base this on Azure Functions(?)
   * Base this on Haskell server-side
+* Bring in Bootstrap, stylesheets etc
 * How rich can JSX get?
 * Is there non-css non-inline styling?
 * What else can axios do?
