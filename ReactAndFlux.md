@@ -66,3 +66,12 @@ For this app we'll choose:
 3. Expose to others: 
 
     module.exports = MyModule;
+
+## What to Install
+
+* Nodejs.org: 8.11.1 LTS
+* cmd
+* cd ReactAndFlux
+* npm init
+* psadmin
+
