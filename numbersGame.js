@@ -103,6 +103,9 @@ const DoneFrame = (props) => {
   return (
     <div className="text-center">
       <h2>{props.doneStatus}</h2>
+      <button 
+        onClick={props.resetGame}
+        className="btn btn-secondary">Play Again</button>
     </div>
   );
 }
@@ -111,7 +114,7 @@ class Game extends React.Component {
 
   static randomNumber = () => 1 + Math.floor(Math.random() * 9);
 
-  state = {
+  static startState = () => ({
     selectedNumbers: [],
     numberOfStars: Game.randomNumber(),
     usedNumbers: [],
@@ -121,7 +124,9 @@ class Game extends React.Component {
                            // but this will be "a challenge for you for later"
     redraws: 5,
     doneStatus: null
-  };
+  });
+
+  state = Game.startState();
 
   // we set answerIsCorrect to null in select and unselect number
   // so that the answer button reverts to = while the player is working
@@ -212,6 +217,8 @@ class Game extends React.Component {
     return false;
   }
 
+  resetGame = () => this.setState(Game.startState());
+
   render() {
     const { 
       selectedNumbers, 
@@ -239,10 +246,13 @@ class Game extends React.Component {
         </div>
         <br />
         {doneStatus ?
-          <DoneFrame doneStatus={doneStatus} /> : 
-          <Numbers selectedNumbers={selectedNumbers}
-          selectNumber={this.selectNumber}
-          usedNumbers={usedNumbers} />
+          <DoneFrame 
+            resetGame={this.resetGame}
+            doneStatus={doneStatus} /> : 
+          <Numbers 
+            selectedNumbers={selectedNumbers}
+            selectNumber={this.selectNumber}
+            usedNumbers={usedNumbers} />
         }
       </div>
     );
