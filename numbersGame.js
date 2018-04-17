@@ -39,8 +39,18 @@ const Button = (props) => {
   }
 
   return (
-    <div className="col-2">
+    <div className="col-2 text-center">
       {button}
+      <br />
+      <br />
+      <button 
+        disabled={props.redraws <= 0}
+        className="btn btn-warning btn-large" 
+        onClick={props.redraw}>
+        {/* <i className="fa fa-refresh" aria-hidden="true"></i> */}
+        <i className="fa fa-refresh"></i>{props.redraws}
+        {/* <i class="fa fa-refresh" aria-hidden="true"></i> */}
+      </button>
     </div>
   );
 }
@@ -95,10 +105,11 @@ class Game extends React.Component {
     selectedNumbers: [],
     numberOfStars: 1 + Math.floor(Math.random() * 9),
     usedNumbers: [],
-    answerIsCorrect: null // noooooo
-                          // says we should have an answer state here
-                          // rather than using null for logic
-                          // but this will be "a challenge for you for later"
+    answerIsCorrect: null, // noooooo
+                           // says we should have an answer state here
+                           // rather than using null for logic
+                           // but this will be "a challenge for you for later"
+    redraws: 5
   };
 
   // we set answerIsCorrect to null in select and unselect number
@@ -135,19 +146,31 @@ class Game extends React.Component {
   acceptAnswer = () => {
     this.setState(prevState => ({
       usedNumbers: prevState.usedNumbers.concat(prevState.selectedNumbers),
-      selectNumbers: [],
+      selectedNumbers: [],
       answerIsCorrect: null,
       numberOfStars: 1 + Math.floor(Math.random() * 9)
     }));
   }
 
+  redraw = () => {
+
+    if (this.state.redraws === 0) { return; }
+
+    this.setState(prevState => ({
+      numberOfStars: 1 + Math.floor(Math.random() * 9),
+      answerIsCorrect: prevState.answerIsCorrect,
+      selectedNumbers: [],
+      redraws: prevState.redraws - 1
+    }));
+  }
 
   render() {
     const { 
       selectedNumbers, 
       numberOfStars, 
       answerIsCorrect, 
-      usedNumbers 
+      usedNumbers,
+      redraws
     } = this.state;
 
     return (
@@ -159,7 +182,9 @@ class Game extends React.Component {
           <Button selectedNumbers={selectedNumbers} 
                   checkAnswer={this.checkAnswer}
                   answerIsCorrect={answerIsCorrect} 
-                  acceptAnswer={this.acceptAnswer} />
+                  acceptAnswer={this.acceptAnswer} 
+                  redraw={this.redraw}
+                  redraws={redraws} />
           <Answer selectedNumbers={selectedNumbers} 
                   unselectNumber={this.unselectNumber} />
         </div>
