@@ -75,4 +75,7 @@ For this app we'll choose:
 * npm init
 * psadmin
 * npm install --save gulp gulp-connect gulp-open
-* npm install -g gulp
+* npm i -g gulp
+* VS Code: 
+  * Gulp Tasks
+  * NPM
