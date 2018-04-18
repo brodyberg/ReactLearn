@@ -79,7 +79,8 @@ gulp.task('Create CSS build artifacts', function() {
 gulp.task('Lint Javascript and JSX', function () {
   return 
     gulp
-      .src(['**/*.js','!node_modules/**'])
+      .src(['src/main.js','!node_modules/**'])
+//      .src(['**/*.js','!node_modules/**'])
 //      .src(config.paths.mainJs)
       //.src(config.paths.js)
       .pipe(eslint())

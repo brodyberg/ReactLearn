@@ -92,6 +92,7 @@ For this app we'll choose:
       "url": "git://github.com/brodyberg/reactlearn.git"
     },
 
+* npm i -g eslint
 
 # How to fix: 
 

@@ -1,4 +1,4 @@
-$ = jQuery = require('jquery');
+$a = jQuery = require('jquery');
 // via $ or by jQuery
 // setting both equal
 // setting globally because bootstrap expects it

@@ -5,6 +5,11 @@
     "node": true,
     "jquery": true
   },
+  "parserOptions": {
+    "ecmaFeatures": {
+        "jsx": true
+    }
+  },
   "rules": {
     "quotes": 0,
     "no-trailing-spaces": 0,
@@ -12,10 +17,20 @@
     "no-unused-vars": 0,
     "no-underscore-dangle": 0,
     "no-alert": 0,
-    "no-lone-blocks": 0
+    "no-lone-blocks": 0,
+    "semi": 2,
+    "require-jsdoc": ["error", {
+      "require": {
+          "FunctionDeclaration": true,
+          "MethodDefinition": true,
+          "ClassDeclaration": true,
+          "ArrowFunctionExpression": true,
+          "FunctionExpression": true
+      }
+    }]
   },
-  "globals": [
-    "jQuery",
-    "$"
-  ]
+  "globals": {
+    "jQuery": true,
+    "$": true
+  }
 }
