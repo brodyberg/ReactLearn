@@ -6,12 +6,18 @@ var connect = require('gulp-connect')
 // open an url in a browser
 var open = require('gulp-open')
 
+var browserify = require('browserify'); // bundler
+var reactify = require('reactify');     // jsx -> js
+var source = require('vinyl-source-stream'); // use conventional text streams with gulp
+
 var config = {
   port: 3000,
   devBaseUrl: 'http://localhost',
   paths: {
     html: './src/*.html',
-    dist: './dist'
+    js: './src/**/*.js',
+    dist: './dist',
+    mainJs: './src/main.js'
   }
 }
 
@@ -47,12 +53,23 @@ gulp.task('html', function() {
     .pipe(connect.reload());
 });
 
+gulp.task('js', function() {
+  browserify(config.paths.mainJs)
+    .transform(reactify)
+    .bundle()
+    .on('error', console.error.bind(console))
+    .pipe(source('bundle.js'))
+    .pipe(gulp.dest(config.paths.dist + '/scripts'))
+    .pipe(connect.reload());
+})
+
 gulp.task('watch', function() {
   gulp.watch(config.paths.html, ['html']);
+  gulp.watch(config.paths.js, ['js']);
 });
 
 // what this is doing is creating the default tasks
 // what *that* means is that when we use 'gulp' from 
 // the command-line with no arguments, these will be 
 // run
-gulp.task('default', ['html', 'open', 'watch']);
+gulp.task('default', ['html', 'js', 'open', 'watch']);

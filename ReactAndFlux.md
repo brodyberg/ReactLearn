@@ -77,8 +77,10 @@ For this app we'll choose:
 * npm install --save gulp gulp-connect gulp-open
 * npm i -g gulp
 * VS Code: 
-  * Gulp Tasks
   * NPM
+* Browserify: use npm packages in the browser
+* npm install --save browserify reactify vinyl-source-stream
+
 
 ## How to fix: 
 
