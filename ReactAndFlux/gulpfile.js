@@ -10,6 +10,7 @@ var browserify = require('browserify'); // bundler
 var reactify = require('reactify');     // jsx -> js
 var source = require('vinyl-source-stream'); // use conventional text streams with gulp
 var concat = require('gulp-concat'); // concatenates files
+var eslint = require('gulp-eslint'); // lint js *and* jsx
 
 var config = {
   port: 3000,
@@ -75,10 +76,22 @@ gulp.task('Create CSS build artifacts', function() {
     .pipe(gulp.dest(config.paths.dist + '/css'));
 })
 
+gulp.task('Lint Javascript and JSX', function () {
+  return 
+    gulp
+      .src(['**/*.js','!node_modules/**'])
+//      .src(config.paths.mainJs)
+      //.src(config.paths.js)
+      .pipe(eslint())
+//      .pipe(eslint({ config: '.eslintrc.json' }))
+      .pipe(eslint.format())
+      .pipe(eslint.failAfterError());
+});
+
 gulp.task('Watch HTML and Javascript for changes', function() {
-  gulp.watch(config.paths.html, ['html']);
-  gulp.watch(config.paths.css, ['css']);
-  gulp.watch(config.paths.js, ['js']);
+  gulp.watch(config.paths.html, ['Create HTML build artifacts']);
+  gulp.watch(config.paths.css, ['Create CSS build artifacts']);
+  gulp.watch(config.paths.js, ['Create and bundle Javascript artifacts', 'Lint Javascript and JSX']);
 });
 
 // what this is doing is creating the default tasks
@@ -89,6 +102,7 @@ gulp.task(
   'default', 
   [ 'Create HTML build artifacts'
   , 'Create CSS build artifacts'
+  , 'Lint Javascript and JSX'
   , 'Create and bundle Javascript artifacts'
   , 'Open the browser'
   , 'Watch HTML and Javascript for changes']);

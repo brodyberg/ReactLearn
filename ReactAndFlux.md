@@ -82,6 +82,32 @@ For this app we'll choose:
 * npm install --save browserify reactify vinyl-source-stream
 * Bootstrap and JQuery: 
 * npm install --save bootstrap jquery gulp-concat
+* npm install --save popper.js
+* npm install --save gulp-eslint eslint-plugin-react babel-eslint
+* npm i npm
+* Add this to package.json quiet npm warning: 
+
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/brodyberg/reactlearn.git"
+    },
+
+
+# How to fix: 
+
+    events.js:183
+          throw er; // Unhandled 'error' event
+          ^
+    Error: Cannot find module 'eslint-config-defaults/configurations/eslint'
+    Referenced from: C:\Users\brodyb\.eslintrc
+
+Then run ```gulp``` again: 
+
+    events.js:183
+          throw er; // Unhandled 'error' event
+          ^
+    Error: No ESLint configuration found.
+
 
 
 ## How to fix: 
