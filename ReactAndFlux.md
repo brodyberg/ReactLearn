@@ -80,6 +80,8 @@ For this app we'll choose:
   * NPM
 * Browserify: use npm packages in the browser
 * npm install --save browserify reactify vinyl-source-stream
+* Bootstrap and JQuery: 
+* npm install --save bootstrap jquery gulp-concat
 
 
 ## How to fix: 

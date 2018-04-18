@@ -9,6 +9,7 @@ var open = require('gulp-open')
 var browserify = require('browserify'); // bundler
 var reactify = require('reactify');     // jsx -> js
 var source = require('vinyl-source-stream'); // use conventional text streams with gulp
+var concat = require('gulp-concat'); // concatenates files
 
 var config = {
   port: 3000,
@@ -16,6 +17,10 @@ var config = {
   paths: {
     html: './src/*.html',
     js: './src/**/*.js',
+    css: [
+        'node_modules/bootstrap/dist/css/bootstrap.min.css'
+      , 'node_modules/bootstrap/dist/css/bootstrap_theme.min.css'
+    ],
     dist: './dist',
     mainJs: './src/main.js'
   }
@@ -63,8 +68,16 @@ gulp.task('Create and bundle Javascript artifacts', function() {
     .pipe(connect.reload());
 })
 
+gulp.task('Create CSS build artifacts', function() {
+  gulp
+    .src(config.paths.css)
+    .pipe(concat('bundle.css'))
+    .pipe(gulp.dest(config.paths.dist + '/css'));
+})
+
 gulp.task('Watch HTML and Javascript for changes', function() {
   gulp.watch(config.paths.html, ['html']);
+  gulp.watch(config.paths.css, ['css']);
   gulp.watch(config.paths.js, ['js']);
 });
 
@@ -75,6 +88,7 @@ gulp.task('Watch HTML and Javascript for changes', function() {
 gulp.task(
   'default', 
   [ 'Create HTML build artifacts'
+  , 'Create CSS build artifacts'
   , 'Create and bundle Javascript artifacts'
   , 'Open the browser'
   , 'Watch HTML and Javascript for changes']);
