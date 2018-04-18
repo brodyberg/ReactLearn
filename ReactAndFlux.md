@@ -95,6 +95,13 @@ For this app we'll choose:
 * npm i -g eslint
 * npm install --save eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-standard
 
+Here's how we have to run the linter for now: 
+
+    node_modules\.bin\eslint src\main.js
+
+* npm install --save react react-router flux
+
+
 # How to fix: 
 
     events.js:183
