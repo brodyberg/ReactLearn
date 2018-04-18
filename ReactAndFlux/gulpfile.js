@@ -47,8 +47,12 @@ gulp.task('html', function() {
     .pipe(connect.reload());
 });
 
+gulp.task('watch', function() {
+  gulp.watch(config.paths.html, ['html']);
+});
+
 // what this is doing is creating the default tasks
 // what *that* means is that when we use 'gulp' from 
 // the command-line with no arguments, these will be 
 // run
-gulp.task('default', ['html', 'open']);
+gulp.task('default', ['html', 'open', 'watch']);
