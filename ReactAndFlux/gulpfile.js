@@ -23,7 +23,7 @@ var config = {
 
 // our first task
 // Start a local dev server
-gulp.task('connect', function() {
+gulp.task('Launch the web server', function() {
   connect.server({
     root: ['dist'],
     port: config.port,
@@ -34,7 +34,7 @@ gulp.task('connect', function() {
 
 // open a given file on the server
 // note we say: first run connect
-gulp.task('open', ['connect'], function() {
+gulp.task('Open the browser', ['Launch the web server'], function() {
 
   var options = {
     uri: 'http://localhost:3000', 
@@ -47,13 +47,13 @@ gulp.task('open', ['connect'], function() {
 }); 
 
 // build/move
-gulp.task('html', function() {
+gulp.task('Create HTML build artifacts', function() {
   gulp.src(config.paths.html)
     .pipe(gulp.dest(config.paths.dist))
     .pipe(connect.reload());
 });
 
-gulp.task('js', function() {
+gulp.task('Create and bundle Javascript artifacts', function() {
   browserify(config.paths.mainJs)
     .transform(reactify)
     .bundle()
@@ -63,7 +63,7 @@ gulp.task('js', function() {
     .pipe(connect.reload());
 })
 
-gulp.task('watch', function() {
+gulp.task('Watch HTML and Javascript for changes', function() {
   gulp.watch(config.paths.html, ['html']);
   gulp.watch(config.paths.js, ['js']);
 });
@@ -72,4 +72,9 @@ gulp.task('watch', function() {
 // what *that* means is that when we use 'gulp' from 
 // the command-line with no arguments, these will be 
 // run
-gulp.task('default', ['html', 'js', 'open', 'watch']);
+gulp.task(
+  'default', 
+  [ 'Create HTML build artifacts'
+  , 'Create and bundle Javascript artifacts'
+  , 'Open the browser'
+  , 'Watch HTML and Javascript for changes']);
