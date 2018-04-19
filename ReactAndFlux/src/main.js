@@ -28,6 +28,7 @@ class App extends React.Component {
   }
 }
 
+// Does not recommend this method for production
 function renderx() {
   var route = window.location.hash.substr(1);
 
