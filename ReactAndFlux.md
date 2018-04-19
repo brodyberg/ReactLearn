@@ -117,7 +117,8 @@ Then run ```gulp``` again:
           ^
     Error: No ESLint configuration found.
 
-
+Ultimately I can't yet figure out how to get eslint to run the local version
+of itself which is apparently what needs to happen to truly lint our files. 
 
 ## How to fix: 
 
@@ -154,3 +155,13 @@ Or
 2. netstat -a -b -o > foo.txt
 3. Search for the port in question
 4. Kill the process listed 
+
+## Virtual DOM
+
+Go even faster with: 
+
+* shouldComponentUpdate
+* PureRenderMixin + immutability
+* SyntheticEvents
+* Isomorphic support
+* React Native
