@@ -30,12 +30,12 @@ var About = require('./components/about/aboutPage');
   
   // Does not recommend this method for production
   function renderx() {
-    var route = window.location.hash.substr(1);
+    var route = win.location.hash.substr(1);
   
     ReactDOM.render(<App route={route} />, document.getElementById('app'));
   }
   
-  window.addEventListener('hashchange', renderx);
+  win.addEventListener('hashchange', renderx);
   renderx();
   
   // this is the entry point for the app
