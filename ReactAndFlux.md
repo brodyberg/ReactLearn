@@ -100,7 +100,7 @@ Here's how we have to run the linter for now:
     node_modules\.bin\eslint src\main.js
 
 * npm install --save react react-router flux
-
+* npm install --save react-dom
 
 # How to fix: 
 

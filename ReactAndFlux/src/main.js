@@ -4,9 +4,10 @@ $ = jQuery = require('jquery');
 // setting globally because bootstrap expects it
 
 var React = require('react');
-var Home = require('components/homePage');
+var ReactDOM = require('react-dom');
+var Home = require('./components/homePage');
 
-React.render(<Home />, document.getElementById('app')); 
+ReactDOM.render(<Home />, document.getElementById('app')); 
 
 // this is the entry point for the app
 
