@@ -1,15 +1,12 @@
 "use-strict";
 
 var gulp = require('gulp');
-// run a local dev server
-var connect = require('gulp-connect')
-// open an url in a browser
-var open = require('gulp-open')
-
-var browserify = require('browserify'); // bundler
-var reactify = require('reactify');     // jsx -> js
-var source = require('vinyl-source-stream'); // use conventional text streams with gulp
-var concat = require('gulp-concat'); // concatenates files
+var connect = require('gulp-connect')        // Run a local dev server
+var open = require('gulp-open')              // Open an url in a browser
+var browserify = require('browserify');      // Bundler
+var reactify = require('reactify');          // JSX -> js
+var source = require('vinyl-source-stream'); // Use conventional text streams with gulp
+var concat = require('gulp-concat');         // Concatenates files
 
 var config = {
   port: 3000,
