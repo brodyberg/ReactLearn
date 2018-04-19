@@ -10,7 +10,6 @@ var browserify = require('browserify'); // bundler
 var reactify = require('reactify');     // jsx -> js
 var source = require('vinyl-source-stream'); // use conventional text streams with gulp
 var concat = require('gulp-concat'); // concatenates files
-var eslint = require('gulp-eslint'); // lint js *and* jsx
 
 var config = {
   port: 3000,
