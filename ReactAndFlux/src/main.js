@@ -3,7 +3,11 @@ $ = jQuery = require('jquery');
 // setting both equal
 // setting globally because bootstrap expects it
 
-var App = console.log('hello world from browserify');
+var React = require('react');
+var Home = require('components/homePage');
 
-// commonjs pattern
-module.exports = App;
+React.render(<Home />, document.getElementById('app')); 
+
+// this is the entry point for the app
+
+
