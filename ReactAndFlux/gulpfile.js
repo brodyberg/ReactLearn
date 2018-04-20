@@ -16,6 +16,7 @@ var config = {
     js: './src/**/*.js',
     css: [
         'node_modules/bootstrap/dist/css/bootstrap.min.css'
+        // theme DNE
       , 'node_modules/bootstrap/dist/css/bootstrap_theme.min.css'
     ],
     images: './src/images/*.*',
