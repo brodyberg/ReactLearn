@@ -4,6 +4,10 @@
 
 Know: 
 
+* Build
+* npm install --save foo@1.1.32
+* Bring in Bootstrap, stylesheets etc
+* React bootstrap is compat with only BSv3 stylesheets
 * React is a library not a framework
 * Class vs. Function components
 * How to show a component with React.DOM
@@ -21,14 +25,12 @@ Know:
 Not know: 
 
 * How to 
-  * Build
   * Test
   * Use TypeScript
   * Route
   * Base this on a server-side thing
   * Base this on Azure Functions(?)
   * Base this on Haskell server-side
-* Bring in Bootstrap, stylesheets etc
 * How rich can JSX get?
 * Is there non-css non-inline styling?
 * What else can axios do?

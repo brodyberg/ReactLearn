@@ -102,6 +102,8 @@ Here's how we have to run the linter for now:
 * npm install --save react react-router flux
 * npm install --save react-dom
 * npm install --save react-bootstrap
+* npm uninstall bootstrap
+* npm install --save bootstrap@3.3.7
 
 # How to fix: 
 
