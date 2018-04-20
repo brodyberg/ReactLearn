@@ -57,10 +57,14 @@ gulp.task('Create HTML build artifacts', function() {
     .pipe(connect.reload());
 });
 
-gulp.task('Move image artifacts', function() {
+gulp.task('Move images and favicon artifacts', function() {
   gulp
     .src(config.paths.images)
     .pipe(gulp.dest(config.paths.dist + '/images'));
+
+  gulp
+    .src('./src/favicon.ico')
+    .pipe(gulp.dest(config.paths.dist));
 });
 
 gulp.task('Create and bundle Javascript artifacts', function() {
@@ -95,6 +99,6 @@ gulp.task(
   [ 'Create HTML build artifacts'
   , 'Create CSS build artifacts'
   , 'Create and bundle Javascript artifacts'
-  , 'Move image artifacts'
+  , 'Move images and favicon artifacts'
   , 'Open the browser'
   , 'Watch HTML and Javascript for changes']);
