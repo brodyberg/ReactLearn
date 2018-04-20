@@ -18,6 +18,7 @@ var config = {
         'node_modules/bootstrap/dist/css/bootstrap.min.css'
       , 'node_modules/bootstrap/dist/css/bootstrap_theme.min.css'
     ],
+    images: './src/images/*.*',
     dist: './dist',
     mainJs: './src/main.js'
   }
@@ -50,9 +51,16 @@ gulp.task('Open the browser', ['Launch the web server'], function() {
 
 // build/move
 gulp.task('Create HTML build artifacts', function() {
-  gulp.src(config.paths.html)
+  gulp
+    .src(config.paths.html)
     .pipe(gulp.dest(config.paths.dist))
     .pipe(connect.reload());
+});
+
+gulp.task('Move image artifacts', function() {
+  gulp
+    .src(config.paths.images)
+    .pipe(gulp.dest(config.paths.dist + '/images'));
 });
 
 gulp.task('Create and bundle Javascript artifacts', function() {
@@ -87,5 +95,6 @@ gulp.task(
   [ 'Create HTML build artifacts'
   , 'Create CSS build artifacts'
   , 'Create and bundle Javascript artifacts'
+  , 'Move image artifacts'
   , 'Open the browser'
   , 'Watch HTML and Javascript for changes']);
