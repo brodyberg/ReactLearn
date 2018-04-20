@@ -13,7 +13,7 @@ var config = {
   devBaseUrl: 'http://localhost',
   paths: {
     html: './src/*.html',
-    js: './src/**/*.js',
+    js: './src/**/*.js*',
     css: [
         'node_modules/bootstrap/dist/css/bootstrap.min.css'
         // theme DNE
@@ -21,7 +21,7 @@ var config = {
     ],
     images: './src/images/*.*',
     dist: './dist',
-    mainJs: './src/main.js'
+    mainJs: './src/main.jsx'
   }
 }
 
