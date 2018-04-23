@@ -104,6 +104,7 @@ Here's how we have to run the linter for now:
 * npm install --save react-bootstrap
 * npm uninstall bootstrap
 * npm install --save bootstrap@3.3.7
+* nmp install --save lodash
 
 # How to fix: 
 
