@@ -12,7 +12,7 @@ var _clone = (item) => {
 }
 
 class AuthorApi {
-  getAllAuthors() {
+  static getAllAuthors() {
     return _clone(authors);
   };
 
