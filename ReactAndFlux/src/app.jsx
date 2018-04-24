@@ -17,22 +17,7 @@ const PrimaryLayout = () => {
   return (
       <div className="primaryLayout">
         <Header />
-        {/* Our React Router 4 App */}
         <div>
-          {/* <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/authors">Authors</Link>
-            </li>
-          </ul>
-          <a href="/about">my about link</a>
-          <Link to="/about">my other about link</Link>
-          <hr/> */}
           <Route
             path="/"
             exact
