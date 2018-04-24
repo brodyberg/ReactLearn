@@ -29,6 +29,8 @@ const PrimaryLayout = () => {
               <Link to="/authors">Authors</Link>
             </li>
           </ul>
+          <a href="/about">my about link</a>
+          <Link to="/about">my other about link</Link>
           <hr/>
           <Route
             path="/"
