@@ -86,6 +86,10 @@ Not know:
   * Lend readability and a way to communicate about what a component expects to other developers reading the code
   * Can specify required-ness, and general types
   * Validation only run in TEST, not mini-fied PROD bundles for performance
+* React Router
+  * Scenario: Multiple client-rendered pages which support deep linking
+  * React has no thoughts on routing, and simple apps might not need it
+  * So we bring in React Router, which is a 'mixin' or cross-cutting concern
 
 # LATER: 
 

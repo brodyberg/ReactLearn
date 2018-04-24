@@ -4,46 +4,20 @@ $ = jQuery = require('jquery');
 // setting globally because bootstrap expects it
 
 var React = require('react');
+var ReactRouter = require('react-router');
+var Router = ReactRouter.Router;
+var Route = ReactRouter.Route;
+
 var ReactDOM = require('react-dom');
-var Home = require('./components/homePage.jsx');
-var About = require('./components/about/aboutPage.jsx');
-var Authors = require('./components/authors/authorPage.jsx');
-var Header = require('./components/common/header.jsx');
+var routes = require('./routes');
 
-(function(win) {
-  "use strict"
+ReactDOM.render(<Router>{routes}</Router>, document.getElementById('app'));
 
-  class App extends React.Component {
-    render () {
-      var Child; 
-  
-      switch (this.props.route) {
-        case 'about': Child = About; break;
-        case 'authors': Child = Authors; break;
-        default: Child = Home;
-      }
-  
-      return (
-        <div>
-          <Header />
-          <Child />
-        </div>      
-      );
-    }
-  }
-  
-  // Does not recommend this method for production
-  function renderx() {
-    var route = win.location.hash.substr(1);
-  
-    ReactDOM.render(<App route={route} />, document.getElementById('app'));
-  }
-  
-  win.addEventListener('hashchange', renderx);
-  renderx();
-  
-  // this is the entry point for the app
-})(window);
+// Router.run(routes, function(Handler) {
+//   ReactDOM.render(<Handler/>, document.getElementById('app'));
+// });
+
+//var App = require('./app.jsx')
 
 // goal is to reference different components based
 // on the url
