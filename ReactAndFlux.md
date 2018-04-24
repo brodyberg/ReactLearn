@@ -105,6 +105,7 @@ Here's how we have to run the linter for now:
 * npm uninstall bootstrap
 * npm install --save bootstrap@3.3.7
 * nmp install --save lodash
+* npm install --save prop-types
 
 # How to fix: 
 

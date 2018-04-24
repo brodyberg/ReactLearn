@@ -82,6 +82,10 @@ Not know:
   * Top-level component
   * Sets props on children
   * Interacts with stores (like flux/redux stores)
+* PropTypes 
+  * Lend readability and a way to communicate about what a component expects to other developers reading the code
+  * Can specify required-ness, and general types
+  * Validation only run in TEST, not mini-fied PROD bundles for performance
 
 # LATER: 
 
