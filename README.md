@@ -78,7 +78,10 @@ Not know:
 * Dynamic children need to have unique keys: 
   * <tr key={author.id}>
   * used by react to ensure right items are created/destroyed
-
+* Controller View
+  * Top-level component
+  * Sets props on children
+  * Interacts with stores (like flux/redux stores)
 
 # LATER: 
 
