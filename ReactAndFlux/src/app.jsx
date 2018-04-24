@@ -1,7 +1,7 @@
-"use strict"
+/* eslint-disable strict */
 
 var BrowserRouter = require('react-router-dom').BrowserRouter;
-//var Router = require('react-router-dom').Router;
+
 var Route         = require('react-router-dom').Route;
 var Link          = require('react-router-dom').Link;
 
@@ -11,14 +11,15 @@ var HomePage      = require('./components/homePage.jsx');
 var AuthorPage    = require('./components/authors/authorPage.jsx');
 var AboutPage     = require('./components/about/aboutPage.jsx');
 
+$ = jQuery = require('jquery');
+
 const PrimaryLayout = () => {
   return (
-    // <Router>
       <div className="primaryLayout">
         <Header />
-        Our React Router 4 App
+        {/* Our React Router 4 App */}
         <div>
-          <ul>
+          {/* <ul>
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -31,7 +32,7 @@ const PrimaryLayout = () => {
           </ul>
           <a href="/about">my about link</a>
           <Link to="/about">my other about link</Link>
-          <hr/>
+          <hr/> */}
           <Route
             path="/"
             exact
@@ -44,7 +45,6 @@ const PrimaryLayout = () => {
             component={AuthorPage} />
         </div>
       </div>
-    // </Router>
   );
 }
 
