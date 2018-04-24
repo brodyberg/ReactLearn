@@ -2,6 +2,7 @@
 
 var React = require('react');
 var Link          = require('react-router-dom').Link;
+var nav = require('bootstrap').nav;
 
 class Header extends React.Component {
   render() {
