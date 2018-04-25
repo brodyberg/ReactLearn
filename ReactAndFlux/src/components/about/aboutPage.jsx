@@ -1,6 +1,15 @@
 "use strict";
 
 var React = require('react');
+var HotKeys = require('react-hotkeys').HotKeys;
+
+const keyMap = {
+  moveUp: 'up'  
+}
+
+const handlers = {
+  'moveUp': (event) => console.log('Move up hotkey called!')
+};
 
 class About extends React.Component {
 
@@ -16,21 +25,25 @@ class About extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>About</h1>
-        <p>
-          This application uses the following technologies:
-        </p>
-        <ul>
-          <li>React</li>
-          <li>React Router</li>
-          <li>Flux</li>
-          <li>Node</li>
-          <li>Gulp</li>
-          <li>Browserify</li>
-          <li>Bootstrap</li>
-        </ul>
-      </div>
+      <HotKeys
+        keyMap={keyMap}
+        handlers={handlers}>      
+        <div id="x">
+          <h1>About</h1>
+          <p>
+            asdfsadfasdfThis application uses the following technologies:
+          </p>
+          <ul>
+            <li>React</li>
+            <li>React Router</li>
+            <li>Flux</li>
+            <li>Node</li>
+            <li>Gulp</li>
+            <li>Browserify</li>
+            <li>Bootstrap</li>
+          </ul>
+        </div>
+      </HotKeys>
     );
   }
 }
