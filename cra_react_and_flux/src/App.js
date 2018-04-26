@@ -3,6 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  static PlusTwo = (x) => x + 2; 
+
   render() {
     return (
       <div className="App">
@@ -12,6 +15,9 @@ class App extends Component {
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+        <p>
+          Hey Brody!
         </p>
       </div>
     );
