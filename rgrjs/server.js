@@ -4,6 +4,8 @@ import express from 'express';
 
 let app = express(); 
 
-app.get('/', (req, res) => res.send('hello express!'));
+app.use(express.static('public'));
+
+//app.get('/', (req, res) => res.send('hello brody!'));
 
 app.listen(3000);

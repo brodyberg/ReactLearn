@@ -26,6 +26,12 @@ worked
 
 undefined string issue is: https://github.com/zkat/npx/issues/144
 
+npx start
+
+npm install --save nodemon
+
+npx nodemon --exec npm start
+
 
 ## Notes
 
