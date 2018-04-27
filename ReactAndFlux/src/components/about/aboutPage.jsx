@@ -11,6 +11,8 @@ const handlers = {
   'moveUp': (event) => console.log('Move up hotkey called!')
 };
 
+const topics = ['React', 'React Router', 'Redux', 'Node', 'Gulp', 'Browserify', 'Bootstrap', 'WebPack']
+
 class About extends React.Component {
 
 // we can start with a state
@@ -28,10 +30,10 @@ class About extends React.Component {
       <HotKeys
         keyMap={keyMap}
         handlers={handlers}>      
-        <div id="x">
+        <div>
           <h1>About</h1>
           <p>
-            asdfsadfasdfThis application uses the following technologies:
+            This application uses the following technologies:
           </p>
           <ul>
             <li>React</li>

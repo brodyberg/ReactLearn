@@ -3,7 +3,7 @@
 var React = require('react');
 var Link  = require('react-router-dom').Link;
 
-class Home extends React.Component {
+class Home extends React.PureComponent {
   render() {
     return (
       <div className="jumbotron">

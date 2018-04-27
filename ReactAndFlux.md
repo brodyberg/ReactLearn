@@ -106,6 +106,7 @@ Here's how we have to run the linter for now:
 * npm install --save bootstrap@3.3.7
 * nmp install --save lodash
 * npm install --save prop-types
+* npm install --save react-hotkeys
 
 # How to fix: 
 

@@ -11,9 +11,12 @@ var React         = require('react');
 var HomePage      = require('./components/homePage.jsx');
 var AuthorPage    = require('./components/authors/authorPage.jsx');
 var AboutPage     = require('./components/about/aboutPage.jsx');
+var KeyPage       = require('./components/key/keyPage.jsx');
 var NoMatch       = require('./components/nomatch/nomatch.jsx');
 
 $ = jQuery = require('jquery');
+
+var message = "brody";
 
 const PrimaryLayout = () => {
   return (
@@ -28,6 +31,9 @@ const PrimaryLayout = () => {
             <Route
               path="/about"
               component={AboutPage} />
+            <Route
+              path="/key"
+              render={(props) => <KeyPage {...props} message={message}/>} />
             <Route
               path="/authors"
               component={AuthorPage} />
