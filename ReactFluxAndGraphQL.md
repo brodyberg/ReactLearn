@@ -31,6 +31,25 @@ npx start
 npm install --save nodemon
 
 npx nodemon --exec npm start
+npm install --save webpack webpack-cli
+
+no: 
+
+npx webpack-cli public\js\app.js public\bundle.js
+
+npx webpack-cli public\js\app.js -o public\bundle.js
+
+-- had a problem so: 
+
+npx webpack-cli --mode development public\js\app.js -o public\bundle.js
+
+-- then we created webpack.config.js
+
+npx webpack-cli 
+
+-- bundle.js this made is 
+-- same size
+-- still fails on 'require'
 
 
 ## Notes
