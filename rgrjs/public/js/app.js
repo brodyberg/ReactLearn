@@ -1,14 +1,6 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-
-console.log("here 1");
-
-const Hello = () => {
-  console.log("here 2");
-  return React.createElement("h3", null, "Hello, React!");
-  // return (
-  //   <h3>Hello React</h3>
-  // );
-}
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Hello }  from '../../components/hello.js'
 
 ReactDOM.render(React.createElement(Hello), document.getElementById('app'));
+//ReactDOM.render(<Hello />, document.getElementById('app'));
