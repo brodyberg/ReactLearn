@@ -51,6 +51,7 @@ npx webpack-cli
 -- same size
 -- still fails on 'require'
 
+turns out: I had a missing ```</script>``` tag... 
 
 ## Notes
 
@@ -85,3 +86,4 @@ Express and Node
 Webpack and Babel
   * bundle to one thing
   * using Babel we'll be able to use ES6
+  * can use webpack-cli -w to just watch
