@@ -1,15 +1,8 @@
 module.exports = {
   mode: "development",
-  entry: "./public/js/app.js",
+  entry: "./app.js",
   output: {
     path: __dirname + '/public',
     filename: "bundle.js"
-  },
-  module: {
-    loaders: [{ 
-        test: /\.js$/,
-        loader: 'babel-loader'
-      }
-    ]
   }
 }
