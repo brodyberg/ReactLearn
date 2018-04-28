@@ -53,6 +53,10 @@ npx webpack-cli
 
 turns out: I had a missing ```</script>``` tag... 
 
+npx webpack-cli --w --d
+
+the --d will emit source maps which tragically double the bundle filesize but also make errors point to files as if they were pre-bundled, so errors are listed as app.js:7 rather than bundle.js:5009
+
 ## Notes
 
 About going beyond MVC and REST for data-driven apps
