@@ -96,3 +96,13 @@ NVM
  * Doesn't work on Windows...
  
 When upgrading Node he also deletes and re-installs everything in node_modules
+
+Can start things like this too: 
+
+C:\Users\brodyb\Documents\GitHub\ReactLearn\rgrjs>node_modules\.bin\nodemon --exec npm start
+[nodemon] 1.17.3
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching: *.*
+[nodemon] starting `npm start`
+
+nodemon (alone) doesn't work because it calls node server.js which has no idea how to parse the js we have. 
