@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-preset-react": "^6.24.1",
     "express": "^4.16.3",
     "nodemon": "^1.17.3",
     "react": "^16.3.2",
@@ -26,7 +27,7 @@
   },
   "babel": {
     "presets": [
-      "es2015"
+      "es2015", "react"
     ]
   }
 }

@@ -91,3 +91,8 @@ Webpack and Babel
   * bundle to one thing
   * using Babel we'll be able to use ES6
   * can use webpack-cli -w to just watch
+
+NVM
+ * Doesn't work on Windows...
+ 
+When upgrading Node he also deletes and re-installs everything in node_modules
