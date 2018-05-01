@@ -106,3 +106,24 @@ C:\Users\brodyb\Documents\GitHub\ReactLearn\rgrjs>node_modules\.bin\nodemon --ex
 [nodemon] starting `npm start`
 
 nodemon (alone) doesn't work because it calls node server.js which has no idea how to parse the js we have. 
+
+Flux: 
+
+  * There can be only one
+  * Goal: one-way communication
+  * Three things to learn: 
+    * dispatch()
+    * register()
+    * waitFor()
+
+Stores: 
+
+  * Where programming happens
+  * Each one is a singleton
+  * Manage application state
+  * Stores are utterly in control of whether or not they change based on incoming information
+  * Stores emit an event when they change
+
+MongoDB
+
+  * Need collection 'links' 
