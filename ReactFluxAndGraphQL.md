@@ -127,3 +127,8 @@ Stores:
 MongoDB
 
   * Need collection 'links' 
+
+Node
+  
+  * For ```process.env.MONGO_PASS``` to work, you need to launch *from* a window that can also see the user environment variable
+  * You can verify the current window can see user environment variables by issuing the ```set``` command
