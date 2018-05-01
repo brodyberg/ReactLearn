@@ -13,10 +13,6 @@ app.listen(3000);
 
 let userPass = process.env.MONGO_PASS;
 
-let url = "mongodb://brodybrgrjs:" + userPass + "%40brodybrgrjs.documents.azure.com/?ssl=true"; 
-
-console.log("url: " + url);
-
 MongoClient
   .connect("mongodb://brodybrgrjs.documents.azure.com:10255/?ssl=true", {
     auth: {
