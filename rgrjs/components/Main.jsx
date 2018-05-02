@@ -1,9 +1,15 @@
 import React from 'react'
+import API from '../API'
 
 export default class Main extends React.Component {
 
+  // before we land in the DOM
   componentWillMount() {
-    debugger;
+  }
+
+  // after we land in the DOM
+  componentDidMount() {
+    API.fetchLinks();
   }
 
   render() {
