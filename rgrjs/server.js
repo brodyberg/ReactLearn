@@ -2,7 +2,7 @@
 
 import express from 'express'
 import morgan from 'morgan'
-import {MongoClient} from 'mongodb'
+import { MongoClient } from 'mongodb'
 
 let port = 3000; 
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import API from '../API'
+import LinkStore from '../stores/LinkStore';
 
 export default class Main extends React.Component {
 
@@ -9,6 +10,7 @@ export default class Main extends React.Component {
 
   // after we land in the DOM
   componentDidMount() {
+    // LinkStore.foo("hey");
     API.fetchLinks();
   }
 
