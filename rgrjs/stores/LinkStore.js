@@ -21,7 +21,9 @@ class LinkStore extends EventEmitter {
     })
   }
 
-  // foo(bar) { console.log(bar); }
+  getAll() {
+    return _links;
+  }
 }
 
 // note: we're exporting an instance... 
