@@ -4,5 +4,18 @@ module.exports = {
   output: {
     path: __dirname + '/public',
     filename: "bundle.js"
-  }
+  },
+  module : {
+    rules: [
+      {
+        "include": __dirname,
+        "exclude": __dirname + '/node_modules/', 
+        "loader": 'babel-loader',
+        "options": {
+          "presets": ["es2015", "react"]
+        },
+        "test": /\.jsx?/
+      }
+    ]
+  } 
 }
