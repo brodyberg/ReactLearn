@@ -14,7 +14,8 @@ let app = express();
 app.use(morgan('combined'))
 app.use(express.static('public'));
 app.use('/graphql', GraphQLHTTP({
-  schema: schema
+  schema: schema,
+  graphiql: true
 }));
 
 //app.get('/', (req, res) => res.send('hello brody!'));
