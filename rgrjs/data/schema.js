@@ -1,27 +1,33 @@
 import {
   GraphQLSchema,
   GraphQLObjectType,
+  GraphQLList,
   GraphQLInt,
   GraphQLString
 } from 'graphql'
+
+let datax = [42, 43, 44];
 
 let schema = new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'Query',
     fields: () => ({
-      counter: {
-        type: GraphQLInt,
-        resolve: () => 42
-      },
-      message: {
-        type: GraphQLString,
-        resolve: () => "Hello, GraphQL!"
+      datay: {
+        type: new GraphQLList(GraphQLInt),
+        resolve: () => datax
       }
+    })
+  }),
 
+  mutation: new GraphQLObjectType({
+    name: 'Mutation',
+    fields: () => ({
+      incrementCounter: {
+        type: GraphQLInt,
+        resolve: () => ++counter
+      }
     })
   })
-
-  // mutation: ... 
 });
 
 export default schema;
