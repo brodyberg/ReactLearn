@@ -1,6 +1,9 @@
 "use strict";
 
 import express from 'express'
+import schema from './data/schema'
+import GraphQLHTTP from 'express-graphql'
+
 import morgan from 'morgan'
 import { MongoClient } from 'mongodb'
 
@@ -10,6 +13,9 @@ let app = express();
 
 app.use(morgan('combined'))
 app.use(express.static('public'));
+app.use('/graphql', GraphQLHTTP({
+  schema: schema
+}));
 
 //app.get('/', (req, res) => res.send('hello brody!'));
 

@@ -132,3 +132,41 @@ Node
   
   * For ```process.env.MONGO_PASS``` to work, you need to launch *from* a window that can also see the user environment variable
   * You can verify the current window can see user environment variables by issuing the ```set``` command
+
+GraphQL
+
+  * Goals: 
+    * Data communication performance
+    * Developer experience
+    * For richer, smarter apps (ex. mobile)
+  * REST critiques
+    * Fitting the REST model to HTTP was not consistent
+    * Client depends on the server
+    * Like a restaurant menu
+    * Custom endpoints every time you want a thing
+    * Grocery store: only 1 item per visit
+  * GraphQL focuses on developer experience
+  * A query
+    * is a representation about how we think about the UI
+    * models the outcome rather than the steps to get you there
+    * Can be arbitrarily complicated and deep
+  * You can express your data needs as a hierarchy
+  * Get data with a single round trip
+    * possibly has negative implications for simple calls being expensive because we're optimising for the richer client case
+  * GrahphiQL
+
+{
+  person(personID: 3) {
+    name,
+    birthYear,
+    homeworld {
+      filmConnection {
+        edges {
+          node {
+            title
+          }
+        }
+      }
+    }
+  }
+}
