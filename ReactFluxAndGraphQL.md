@@ -155,6 +155,15 @@ GraphQL
     * possibly has negative implications for simple calls being expensive because we're optimising for the richer client case
   * GrahphiQL
 
+  * GraphQL
+    * execution engine on the server
+    * query language on the client
+    * but GraphQL is on both, so it's a data lingua franca
+
+In section 4, re-watch: 
+  * GraphQL queries and mutations
+  * GraphQL core principles
+
 {
   person(personID: 3) {
     name,
