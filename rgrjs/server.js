@@ -13,40 +13,31 @@ let app = express();
 
 app.use(morgan('combined'))
 app.use(express.static('public'));
-app.use('/graphql', GraphQLHTTP({
-  schema: schema,
-  graphiql: true
-}));
 
 //app.get('/', (req, res) => res.send('hello brody!'));
 
 let rgrjs_db; 
 
 MongoClient
-  .connect("mongodb://brodybrgrjs.documents.azure.com:10255/?ssl=true", {
+  .connect(
+    "mongodb://brodybrgrjs.documents.azure.com:10255/?ssl=true", {
     auth: {
       user: 'brodybrgrjs',
       password: process.env.MONGO_PASS,
-    }
-  }, 
-  function(err, mongoClient) { 
-    if (err) throw err;
-
-    rgrjs_db = mongoClient.db("rgrjs");
-    app.listen(port, () => 
-    { 
-      console.log("Server running on https://localhost:" + port)
-    });
-  });
-
-app.get("/data/links", (req, res) => {
-  rgrjs_db
-    .collection("links")
-    // this means "find everything" 
-    .find({})
-    .toArray((err, links) => {
+      }
+    }, 
+    function(err, mongoClient) { 
       if (err) throw err;
+
+      rgrjs_db = mongoClient.db("rgrjs");
+
+      app.use('/graphql', GraphQLHTTP({
+        schema: schema(rgrjs_db),
+        graphiql: true
+      }));
       
-      res.json(links);
+      app.listen(port, () => 
+      { 
+        console.log("Server running on https://localhost:" + port)
+      });
     });
-});
