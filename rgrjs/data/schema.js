@@ -6,14 +6,24 @@ import {
   GraphQLString
 } from 'graphql'
 
-let datax = [42, 43, 44];
+let datax = [
+  { counter: 42 },
+  { counter: 43 },
+  { counter: 44 }];
+
+let counterType = new GraphQLObjectType({
+  name: 'Counter',
+  fields: () => ({
+    counter: { type: GraphQLInt }
+  })
+});
 
 let schema = new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'Query',
     fields: () => ({
       datay: {
-        type: new GraphQLList(GraphQLInt),
+        type: new GraphQLList(counterType),
         resolve: () => datax
       }
     })
