@@ -265,3 +265,10 @@ Working with data is hard, "Why Relay" is that it gives you the following:
   * Disambiguate and deduplicate
   * What we need - what we have
   * The NODE interface (a new thing he'll show)
+
+* Connection Model
+  * Mostly related to pagination
+  
+# PropTypes are SUPER IMPORTANT 
+
+For component development that isn't insane. 
