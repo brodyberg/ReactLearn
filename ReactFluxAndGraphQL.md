@@ -229,3 +229,39 @@ I don't get this one. He says "you can re-use your existing logic on the server.
 10. Mutations are just like queries, same structure, same benefits
 
 I like this
+
+# Relay
+
+* For declarative fetching and mutating of data
+
+Working with data is hard, "Why Relay" is that it gives you the following: 
+
+  * Batching
+  * Performance
+  * Error handling
+  * Retry strategies
+  * Optimistic Mutation
+  * Rollbacks
+  * Pagination
+  * Caching
+
+## Core Principles
+
+* Storage & Caching
+  * Relay.Store
+  * Single, normalized, client-side datastore in-memory
+  * QueueStore -> MemoryStore -> CacheManager
+  * MemoryStore has a simple bool understanding of everything which helps answer question of "is it fetched or not?"
+  * QueueStore this is where relay handles in-flight changes to the data
+    * in front of the memory store, so you can query from it
+    * which allows for optimistic updates in our ui
+    * also allows for easy roll-backs
+      * rather than try to fix things, you just remove a faulty thing from the queue and we're done
+  * CacheManager can be any client-side storage engine
+  * The layering is important because "any layer than can answer your query will answer your query"
+
+* Object identification
+  * UUID for everything
+  * Disambiguate and deduplicate
+  * What we need - what we have
+  * The NODE interface (a new thing he'll show)
