@@ -18,14 +18,13 @@ export default class Main extends React.Component {
     limit: 4
   }
   
-  constructor(props) {
-    super(props); 
+  state = _getAppState(); 
 
-    this.state = _getAppState(); 
-    this.onChange = this.onChange.bind(this); 
-  }
-
-  onChange() {
+  // TC39 expression bodied functions 
+  // are bound to this automatically so we can 
+  // delete that code we had to add in the ctor 
+  // for that purpose
+  onChange = () => {
     console.log("4. In the View");
     this.setState(_getAppState());
   }
