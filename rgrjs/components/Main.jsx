@@ -9,6 +9,15 @@ let _getAppState = () => {
 
 export default class Main extends React.Component {
 
+  static propTypes = {
+    limit: PropTypes.number,
+    bar: PropTypes.number.isRequired
+  }
+  
+  static defaultProps = {
+    limit: 4
+  }
+  
   constructor(props) {
     super(props); 
 
@@ -58,13 +67,4 @@ export default class Main extends React.Component {
       </div>
     );  
   }
-}
-
-Main.propTypes = {
-  limit: PropTypes.number,
-  bar: PropTypes.number.isRequired
-}
-
-Main.defaultProps = {
-  limit: 4
 }
