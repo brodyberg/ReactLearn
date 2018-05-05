@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import API from '../API'
 import LinkStore from '../stores/LinkStore';
 
@@ -37,7 +38,12 @@ export default class Main extends React.Component {
 
   render() {
 
-    let content = this.state.links.map(link => {
+    let content = 
+      this
+        .state
+        .links
+        .slice(0, this.props.limit)
+        .map(link => {
       return <li key={link._id}>
                <a href={link.url}>{link.title}</a>
              </li>;
@@ -52,4 +58,8 @@ export default class Main extends React.Component {
       </div>
     );  
   }
+}
+
+Main.propTypes = {
+  limit: PropTypes.number
 }
