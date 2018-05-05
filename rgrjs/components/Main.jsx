@@ -61,5 +61,10 @@ export default class Main extends React.Component {
 }
 
 Main.propTypes = {
-  limit: PropTypes.number
+  limit: PropTypes.number,
+  bar: PropTypes.number.isRequired
+}
+
+Main.defaultProps = {
+  limit: 4
 }
